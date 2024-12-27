@@ -1,14 +1,20 @@
 const mongoose = require('mongoose') ;
+require('dotenv').config();
+const config = require('config');
+
+const debug = require('debug')('development:server');
+
+
+
+
 
 function connectData(){
- mongoose.connect("mongodb://127.0.0.1:27017/digital").then(()=>{
-    console.log(" cunnect ot database ");
+ mongoose.connect(`${config.get("MONGO_URI")}scatch`).then(()=>{
+   debug("cunnect ot database...");
  }).catch((err)=>{
   console.log(err);
   
  })
-
-   
 }
 
 connectData(); 

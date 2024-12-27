@@ -1,4 +1,5 @@
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const userconfig = require("./config/db.config") ;
@@ -28,8 +29,7 @@ app.get("/" , (req , res)=>{
     res.send(" hey ") ;
 })
 
-app.listen(3000 , ()=>{
-    console.log(" server is cunnect ");
-    
-}) ;
+app.listen(process.env.PORT) ;
+
+
 
